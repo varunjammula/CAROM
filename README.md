@@ -68,6 +68,48 @@ More detailed demo videos for qualitative evaluation are shown as follows.
 * [Demo on four view fusion at site 1](https://youtu.be/eQwW7ZCzwtU) (Detailed slow motion, Anthem, AZ)
 * [Demo on speed estimation at site 1](https://youtu.be/8jOseFxUxsI) (Detailed slow motion, Anthem, AZ)
 
+
+## Tracking algorithm
+
+### Environment Setup on Ubuntu 18.04
+1) Install cuda v11 [toolkit](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=18.04&target_type=deb_local)
+2) Install Anaconda [link](https://www.anaconda.com/products/individual#linux)
+3) Install Intel Distribution for Python following instructions on [link](https://software.intel.com/content/www/us/en/develop/articles/using-intel-distribution-for-python-with-anaconda.html)
+
+
+### Python Environment Setup
+1) Activate Intel Distribution for Python (idp): `conda activate idp`<br>
+2) Install Python dependencies `pip3 install -r requirements.txt ` to install required dependencies <br>
+3) Add `export PYTHONPATH=$PYTHONPATH:/project_root` to `~/.bashrc` <br>
+
+NOTE: Make sure you install an opencv-python version that was compiled with ffmpeg flag to be able to read .mpg video files.
+
+
+### Using the algorithm
+1) Download [calibration files](https://drive.google.com/file/d/1Pll2jAHzyQONjZ6ThRXL4I-WMVeCfhN7/view?usp=sharing) and re-trained [model](https://www.dropbox.com/s/0j1051ie3otb77e/retrained_net.pth?dl=0)
+2) The project must have the following folder structure:
+
+```
+tracking_3d
+│   README.md
+|   requirements.txt
+│   tracking.py
+|   ...
+|   retrained_net.pth
+│
+└───data
+│   │   video
+│   │   calibration_2d
+
+```
+3) Change the folder path in `main` function within `tracking.py` file to point to the data folder of the project
+4) The tracking algorithm can be used to either extract or replay trajectories from the video. To extract tracking data, set flag `replay=False` within the `test_tracker()` method. To replay tracking data, set flag `replay=True` within the `test_tracker` method.
+5) Choose the format of the data extracted by selecting `npy` or `csv` within the `test_tracker` method
+6) Run `python3 tracking.py`
+
+
+
+
 ## Publications
 
 * Duo Lu, Varun C Jammula, Steven Como, Jeffrey Wishart, Yan Chen, Yezhou Yang, "**CAROM - Vehicle Localization and Traffic Scene Reconstruction from Monocular Cameras on Road Infrastructures**", *IEEE International Conference on Robotics and Automation (ICRA), 2021*.
