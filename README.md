@@ -86,7 +86,7 @@ NOTE: Make sure you install an opencv-python version that was compiled with ffmp
 
 
 ### Using the algorithm
-1) Download [calibration files](https://drive.google.com/file/d/1Pll2jAHzyQONjZ6ThRXL4I-WMVeCfhN7/view?usp=sharing) and re-trained [model](https://www.dropbox.com/s/0j1051ie3otb77e/retrained_net.pth?dl=0)
+1) Download [calibration files](https://drive.google.com/file/d/1Pll2jAHzyQONjZ6ThRXL4I-WMVeCfhN7/view?usp=sharing)
 2) The project must have the following folder structure:
 
 ```
